@@ -56,22 +56,61 @@ function playGame() {
         }
     }
 
-    for (i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
+    // for (i = 0; i < 5; i++) {
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
+    //     playRound(humanSelection, computerSelection);
+    // }
+    // const humanSelection = getHumanChoice();
+    // const computerSelection = getComputerChoice();
+    // playRound(humanSelection, computerSelection);
+
+
+    const rock_btn = document.createElement("button");
+    const paper_btn = document.createElement("button");
+    const scissors_btn = document.createElement("button");
+
+    const container = document.querySelector('#container');
+    container.appendChild(rock_btn);
+    container.appendChild(paper_btn);
+    container.appendChild(scissors_btn);
+    rock_btn.textContent = 'Rock';
+    paper_btn.textContent = 'Paper';
+    scissors_btn.textContent = 'Scissors';
+
+
+    rock_btn.addEventListener('click', () => {
+        const humanSelection = 'rock';
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-    }
+    })
 
-    if (humanScore > computerScore) {
-        gameOutcome = 'won';
-    } else if (humanScore < computerScore) {
-        gameOutcome = 'lost';
-    } else {
-        gameOutcome = 'Drew'
-    }
+    paper_btn.addEventListener('click', () => {
+        const humanSelection = 'paper';
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    })
 
-    console.log(`Game over. You ${gameOutcome}, with a score of ${humanScore} compared to the computer's score of ${computerScore}.`)
+    scissors_btn.addEventListener('click', () => {
+        const humanSelection = 'scissors';
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    })
+
+
+
+    // if (humanScore > computerScore) {
+    //     gameOutcome = 'won';
+    // } else if (humanScore < computerScore) {
+    //     gameOutcome = 'lost';
+    // } else {
+    //     gameOutcome = 'Drew'
+    // }
+
+    // console.log(`Game over. You ${gameOutcome}, with a score of ${humanScore} compared to the computer's score of ${computerScore}.`)
 
 }
+
+
 
 playGame();
